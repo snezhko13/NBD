@@ -1,0 +1,108 @@
+1.Shortest (least stages) routes from Darjeeling to Sandakphu that can be used in winter
+
+MATCH paths = allShortestPaths((start:town{ name: 'Darjeeling' })-[*]-(end:peak{ name: 'Sandakphu' }))
+WHERE ALL (p IN relationships(paths) WHERE p.winter = "true")
+RETURN paths
+
+2.All routes you can use to get from Darjeeling to Sandakphu, sorted by the distance you need to travel
+
+
+MATCH p=(start:town{ name: 'Darjeeling' })-[*]->(end:peak{ name: 'Sandakphu' })
+WITH p, REDUCE(w=0,x IN relationships(p) | w+x.distance) AS distance
+RETURN p, distance ORDER BY distance
+
+
+
+3.All places you can get from Darjeeling using a twowheeler in the summer
+
+
+MATCH p=(start:town{ name: 'Darjeeling' })-[:twowheeler*{summer:"true"}]->(end) RETURN end
+
+
+NO PLACES TO GET 
+
+4. List of all airports sorted by number of flights starting in them
+SHOULD BE DONE ONLY AFTER. USING ADDITIONAL QUERIES FROM 5
+
+MATCH (:Flight)-[r:ORIGIN]->(airport:Airport)
+RETURN airport,count(r) as amountOfDepartures
+ORDER BY amountOfDepartures
+
+5. List of all airports you can reach (directly or indirectly) from LAX spending less than 3000
+Querry is too difficult, so let's make it a little bit easier
+
+
+Economy prices
+MATCH (flg:Flight)<-[a:ASSIGN]-(t:Ticket{class:"economy"})
+SET flg.economyPrice = t.price
+RETURN flg
+
+ADD BUSINENSS
+
+MATCH (flg:Flight)<-[a:ASSIGN]-(t:Ticket{class:"business"})
+SET flg.businessPrice = t.price
+RETURN flg
+
+
+ADD 1ST CLAS
+
+MATCH (flg:Flight)<-[a:ASSIGN]-(t:Ticket{class:"firstClass"})
+SET flg.firstClassPrice = t.price
+RETURN flg
+
+MATCH (a1:Airport)<-[o:ORIGIN]-(flg:Flight)-[d:DESTINATION]->(a2:Airport)
+UNWIND [flg.economyPrice,flg.businessPrice,flg.firstClassPrice] as prices
+WITH a1,flg,a2,min(prices) as minPrice
+CREATE (a1)-[r:ROUTE{flight:id(flg),minPrice:minPrice,airline:flg.airline,businessPrice:flg.businessPrice,economyPrice:flg.economyPrice,firstClassPrice:flg.firstClassPrice,date:flg.date,distance:flg.distance,duration:flg.duration}]->(a2)
+return a1,r,a2
+
+
+QUERRY 5 IS DONE HERE!!:
+
+MATCH (a1:Airport{name:"LAX"})-[r:ROUTE*]->(a2:Airport)
+WHERE reduce(price=0,x IN r|price+x.minPrice)<3000
+RETURN a1,r,a2
+ LIMIT 5
+
+WITHOUT lim5 my Mac can explode.....
+
+6. Sort connections you can use to go from LAX to DAY by connection price
+MATCH path= allShortestPaths((start:Airport{ name: 'LAX' })-[r:ROUTE*]->(end:Airport{ name: 'DAY' }))
+RETURN path, reduce(price=0, route in r|price+route.minPrice) as pathPrice
+ORDER BY pathPrice
+
+NO RESULTS
+
+7. Cheapest connection from LAX to DAY
+
+MATCH path= allShortestPaths((start:Airport{ name: 'LAX' })-[r:ROUTE*]->(end:Airport{ name: 'DAY' }))
+RETURN path, reduce(price=0, route in r|price+route.minPrice) as pathPrice
+ORDER BY pathPrice
+
+
+NO RESULTS
+
+8.Cheapest connection from LAX to DAY in business class
+
+MATCH path= allShortestPaths((start:Airport{ name: 'LAX' })-[r:ROUTE*]->(end:Airport{ name: 'DAY' }))
+RETURN path, reduce(price=0, minPrice in [flight IN r | flight.businessPrice]|price+minPrice) as pathPrice
+ORDER BY pathPrice
+
+NO RESULTS
+
+9.List of airlines sorted by the number of cities they offer connections to and from (unique cities taking part in :ORIGIN and :DESTINATION of Flight nodes handled by given airline)
+
+
+MATCH (a1:Airport)<-[:ORIGIN]-(f:Flight)-[:DESTINATION]->(a2:Airport)
+UNWIND [a2, a1] as cities
+RETURN f.airline as airline,count(distinct cities) as numberOfUniqueCities
+
+10. Cheapest connection between 3 different airports
+
+MATCH (a1:Airport)-[r1:ROUTE]->(a2:Airport)-[r2:ROUTE]->(a3:Airport) WHERE NOT a1=a3
+RETURN a1 as firstCity,r1 as firstFlight,a2 as secondCity,r2 as secondFlight,a3 as thirdCity,r1.minPrice+r2.minPrice as price
+ORDER BY price
+LIMIT 1
+
+WITHOUT LIMIT 1 MacBook Pro 2019 is going to explode
+
