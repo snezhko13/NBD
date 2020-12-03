@@ -104,5 +104,5 @@ RETURN a1 as firstCity,r1 as firstFlight,a2 as secondCity,r2 as secondFlight,a3 
 ORDER BY price
 LIMIT 1
 
-WITHOUT LIMIT 1 MacBook Pro 2019 is going to explode
+WITHOUT LIMIT 1 Mac is going to explode
 
