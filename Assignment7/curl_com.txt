@@ -1,0 +1,43 @@
+TASK1
+
+curl -i -XPUT -H "Content-Type: application/json" -d '{"name":"Andrii","second name":"Snizhko","age":21,"student":"true"}' http://localhost:8098/buckets/s23691/keys/person1
+curl -i -XPUT -H "Content-Type: application/json" -d '{"name":"Mykola","second name":"Parasuk","age":23,"student":"true"}' http://localhost:8098/buckets/s23691/keys/person2
+curl -i -XPUT -H "Content-Type: application/json" -d '{"name":"Sanya","second name":"Barabulka","age":22,"student":"false"}' http://localhost:8098/buckets/s23691/keys/person3
+curl -i -XPUT -H "Content-Type: application/json" -d '{"name":"Kireall","second name":"Pivnic","age":26,"student":"false"}' http://localhost:8098/buckets/s23691/keys/person4
+curl -i -XPUT -H "Content-Type: application/json" -d '{"name":"Vaflya","second name":"Petruhska","age":25,"student":"true"}' http://localhost:8098/buckets/s23691/keys/person5
+
+TASK2
+
+ curl -i http://localhost:8098/buckets/s23691/keys/person5     
+
+
+TASK3
+
+curl -i -XPUT -H "Content-Type: application/json" -d '{"name":"Andrii","second name":"Snizhko","age":21,"student":"true","nationality":"Ukrain"}' http://localhost:8098/buckets/s23691/keys/person1 
+
+TASK4
+
+curl -i -XPUT -H "Content-Type: application/json" -d '{"name":"Mykola","second name":"Parasuk","age":23}' http://localhost:8098/buckets/s23691/keys/person2 
+
+TASK5
+curl -i -XPUT -H "Content-Type: application/json" -d '{"name":"Mykola","second name":"Parasuk","age":26}' http://localhost:8098/buckets/s23691/keys/person2 
+
+TASK6
+
+curl -i -XDELETE http://localhost:8098/buckets/s23691/keys/person2
+
+TASK7
+
+curl -i http://localhost:8098/buckets/s23691/keys/person2 
+
+TASK8
+
+curl -XPOST -i -H "Content-Type: application/json" -d '{"name":"Boris","second name":"Taranenko","age":33,"student":"false"}' http://localhost:8098/buckets/s23691/keys
+
+TASK9
+
+curl -i http://localhost:8098/buckets/s23691/keys/NCcDvcNGMMuKdjEjJ4Zxx6vZdKD
+
+TASK10
+
+curl -i -XDELETE http://localhost:8098/buckets/s23691/keys/NCcDvcNGMMuKdjEjJ4Zxx6vZdKD

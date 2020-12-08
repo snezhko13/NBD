@@ -1,0 +1,139 @@
+TASK2
+
+HTTP/1.1 204 No Content
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Date: Tue, 08 Dec 2020 17:38:25 GMT
+Content-Type: application/json
+Content-Length: 0
+
+
+HTTP/1.1 204 No Content
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Date: Tue, 08 Dec 2020 17:54:28 GMT
+Content-Type: application/json
+Content-Length: 0
+
+
+HTTP/1.1 204 No Content
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Date: Tue, 08 Dec 2020 17:54:28 GMT
+Content-Type: application/json
+Content-Length: 0
+
+
+
+
+HTTP/1.1 204 No Content
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Date: Tue, 08 Dec 2020 17:54:28 GMT
+Content-Type: application/json
+Content-Length: 0
+
+
+
+HTTP/1.1 204 No Content
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Date: Tue, 08 Dec 2020 17:54:28 GMT
+Content-Type: application/json
+Content-Length: 0
+
+
+
+TASKK2
+
+HTTP/1.1 200 OK
+X-Riak-Vclock: a85hYGBgzGDKBVI8DAbyfTU2U+0gQomMeawMvyxdbvJlAQA=
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Link: </buckets/s23691>; rel="up"
+Last-Modified: Tue, 08 Dec 2020 17:55:06 GMT
+ETag: "745QmyRZhEHYc0KaRpjKDo"
+Date: Tue, 08 Dec 2020 18:12:33 GMT
+Content-Type: application/json
+Content-Length: 69
+
+{"name":"Vaflya","second name":"Petruhska","age":25,"student":"true"}% 
+
+TASK3
+
+HTTP/1.1 204 No Content
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Date: Tue, 08 Dec 2020 18:14:21 GMT
+Content-Type: application/json
+Content-Length: 0
+
+TASK4
+
+HTTP/1.1 204 No Content
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Date: Tue, 08 Dec 2020 18:20:02 GMT
+Content-Type: application/json
+Content-Length: 0
+
+TASK5
+HTTP/1.1 204 No Content
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Date: Tue, 08 Dec 2020 18:22:14 GMT
+Content-Type: application/json
+Content-Length: 0
+
+TASK6
+HTTP/1.1 204 No Content
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Date: Tue, 08 Dec 2020 18:25:56 GMT
+Content-Type: application/json
+Content-Length: 0
+
+TASK7
+
+HTTP/1.1 404 Object Not Found
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Date: Tue, 08 Dec 2020 18:26:46 GMT
+Content-Type: text/plain
+Content-Length: 10
+
+not found
+
+
+TASK8
+
+HTTP/1.1 201 Created
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Location: /buckets/s23691/keys/NCcDvcNGMMuKdjEjJ4Zxx6vZdKD
+Date: Tue, 08 Dec 2020 18:35:07 GMT
+Content-Type: application/json
+Content-Length: 0
+
+TASK9
+
+HTTP/1.1 200 OK
+X-Riak-Vclock: a85hYGBgzGDKBVI8DAbyfTXmwUwQoUTGPFYGfSeXm3xZAA==
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Link: </buckets/s23691>; rel="up"
+Last-Modified: Tue, 08 Dec 2020 18:35:07 GMT
+ETag: "64Bc8ErfLFmQo0Ts7A1Mlk"
+Date: Tue, 08 Dec 2020 18:36:52 GMT
+Content-Type: application/json
+Content-Length: 69
+
+{"name":"Boris","second name":"Taranenko","age":33,"student":"false"}%  
+
+TASK10
+
+HTTP/1.1 204 No Content
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Date: Tue, 08 Dec 2020 18:38:19 GMT
+Content-Type: application/json
+Content-Length: 0
